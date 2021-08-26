@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_stripe
+    description: one row per unique payment
+    columns: 
+      - name: payment_id
+        description: primary key for stg_payments
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: foreign key to jaffle_shop.stg_orders
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: payment_method
+        description: '{{ doc("payment_method") }}'
+        tests:
+          - accepted_values:
+              values: ['credit_card','coupon','bank_transfer','gift_card']
+      - name: status
+        description: '{{ doc("status") }}'
+      - name: amount
+        description: numeric with two decimal places (currency)
+      - name: created_at
+        description: YYYY-MM-DD
+
