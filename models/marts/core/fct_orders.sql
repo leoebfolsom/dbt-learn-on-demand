@@ -28,3 +28,4 @@ final as (
 )
 
 select * from final
+{{ limit_data_in_dev('order_date', 3000) }}
