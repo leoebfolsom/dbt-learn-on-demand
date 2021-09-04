@@ -6,6 +6,11 @@ name: 'jaffle_shop'
 version: '1.0.0'
 config-version: 2
 
+vars:
+  github_source:
+    github_database: fivetran_database
+    github_schema: github
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
