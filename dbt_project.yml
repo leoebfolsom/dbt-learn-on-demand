@@ -8,7 +8,7 @@ config-version: 2
 
 vars:
   github_source:
-    github_database: fivetran_database
+    github_database: raw
     github_schema: github
 
 # This setting configures which "profile" dbt uses for this project.
